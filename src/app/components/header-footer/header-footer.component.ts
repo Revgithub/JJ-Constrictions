@@ -9,5 +9,16 @@ import { MaterialModule } from 'src/app/material.module';
   imports:[MaterialModule]
 })
 export class HeaderFooterComponent {
-
+  resize()
+  {
+    let x = document.getElementById("myTopnav");
+    console.log(x);
+    if(x)
+    if (x?.className === "topnav") {
+      x.className += " responsive";
+      console.log(x.className);
+    } else {
+      x.className = "topnav";
+    }
+  }
 }
