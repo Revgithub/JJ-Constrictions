@@ -1,0 +1,48 @@
+<mat-dialog-content>
+    <form #contactForm="ngForm" (ngSubmit)="sendEmail(contactForm)">
+        <!-- Name Field (Only Letters) -->
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput name="name" [(ngModel)]="name" required pattern="^[a-zA-Z\s]+$">
+          <mat-error *ngIf="contactForm.controls['name']?.invalid && contactForm.controls['name']?.touched">
+            Name must contain only letters.
+          </mat-error>
+        </mat-form-field>
+      
+        <!-- Email Field (Valid Email Format) -->
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" name="email" [(ngModel)]="email" required email>
+          <mat-error *ngIf="contactForm.controls['email']?.invalid && contactForm.controls['email']?.touched">
+            Enter a valid email address.
+          </mat-error>
+        </mat-form-field>
+      
+        <!-- Mobile Field (Only Numbers, 10 Digits) -->
+        <mat-form-field appearance="outline">
+          <mat-label>Mobile</mat-label>
+          <input matInput name="mobile" [(ngModel)]="mobile" required pattern="^[0-9]{10}$">
+          <mat-error *ngIf="contactForm.controls['mobile']?.invalid && contactForm.controls['mobile']?.touched">
+            Mobile number must be exactly 10 digits.
+          </mat-error>
+        </mat-form-field>
+      
+        <!-- Message Field -->
+        <mat-form-field appearance="outline">
+          <mat-label>Message</mat-label>
+          <textarea matInput name="message" [(ngModel)]="message" required></textarea>
+          <mat-error *ngIf="contactForm.controls['message']?.invalid && contactForm.controls['message']?.touched">
+            Message is required.
+          </mat-error>
+        </mat-form-field>
+      
+        <!-- Form Actions -->
+        <mat-dialog-actions>
+          <button mat-button type="button" (click)="closeDialog()">Cancel</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">
+            Send
+          </button>
+        </mat-dialog-actions>
+      </form>
+      
+</mat-dialog-content>

@@ -1,90 +1,216 @@
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
-
-/* Slideshow container */
+/* Slideshow container (Reduced height & Responsive) */
 .slideshow-container {
- width: 100%;
   position: relative;
-  margin: auto;
+  width: 100%;
+  height: 400px; /* Reduced height */
+  overflow: hidden;
 }
 
-/* Next & previous buttons */
+/* Slide Wrapper */
+.slides-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+/* Each Slide */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+/* Image Styling */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6); /* Light-Dark Effect */
+}
+
+/* Overlay Effect */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Text Content */
+.text-container {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  width: 350px; /* Adjusted width */
+  height: 250px; /* Adjusted height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.text-container.animate-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Adjust text sizes */
+.sub-text {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.main-text {
+  font-size: 38px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  display: block;
+  text-align: center;
+}
+
+/* Animated Half-Box */
+.animated-box {
+  position: absolute;
+  top: 25%;
+  left: 10%;
+  width: 350px;
+  height: 250px;
+  border: 4px solid white;
+  border-right: none;
+  opacity: 0.9;
+  animation: boxSlide 2s infinite;
+}
+
+/* Animation for the Half-Box */
+@keyframes boxSlide {
+  0% { width: 0; }
+  50% { width: 200px; }
+  100% { width: 350px; }
+}
+
+/* Navigation Buttons */
 .prev, .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
   color: white;
   font-weight: bold;
   font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
   border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
 }
 
-.active, .dot:hover {
-  background-color: #717171;
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+  background: rgba(0, 0, 0, 0.8);
 }
 
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+/* 📱 Responsive Styles */
+@media (max-width: 1024px) {
+  .slideshow-container {
+    height: 350px; /* Adjust height */
+  }
+  
+  .text-container {
+    top: 20%;
+    left: 8%;
+    width: 280px;
+    height: 200px;
+  }
+
+  .main-text {
+    font-size: 30px;
+  }
+
+  .animated-box {
+    width: 280px;
+    height: 200px;
+  }
 }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+@media (max-width: 768px) {
+  .slideshow-container {
+    height: 300px;
+  }
+
+  .text-container {
+    top: 18%;
+    left: 5%;
+    width: 250px;
+    height: 180px;
+  }
+
+  .sub-text {
+    font-size: 18px;
+  }
+
+  .main-text {
+    font-size: 28px;
+  }
+
+  .animated-box {
+    width: 250px;
+    height: 180px;
+  }
 }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+@media (max-width: 480px) {
+  .slideshow-container {
+    height: 250px;
+  }
+
+  .text-container {
+    top: 15%;
+    left: 3%;
+    width: 200px;
+    height: 150px;
+  }
+
+  .sub-text {
+    font-size: 16px;
+  }
+
+  .main-text {
+    font-size: 24px;
+  }
+
+  .animated-box {
+    width: 200px;
+    height: 150px;
+  }
+
+  .prev, .next {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
 }

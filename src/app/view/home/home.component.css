@@ -1,0 +1,399 @@
+.flex-container
+{
+  display:flex;  
+  justify-content: flex-start;
+}
+.iframe{
+    padding: 4%;
+}
+.small_header
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-weight: 500;
+font-size: 26px;
+color:#565969
+}
+.Intro_section
+{
+    padding: 4%;
+}
+.big_header
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    color: #001659;
+    font-size: 60px;;
+}
+.company-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    max-width: 1200px;
+    margin: auto;
+    line-height: 1.6;
+  }
+  
+  .text-content {
+    max-width: 50%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  .text-content h4 {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .text-content h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .video-content {
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .styled-iframe {
+    width: 100%;
+    height: 315px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  @media screen and (max-width: 900px) {
+  
+    .company-intro {
+      flex-direction: column;
+      text-align: center;
+    }
+    .text-content {
+      max-width: 100%;
+    }
+    .video-content {
+        max-width: 100%;
+      }
+  }
+  .Intro
+  {
+    font-size: 20px;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    /* background: linear-gradient(170deg, #e41937 0%, #762f8f 74.48%); */
+    background: grey;
+    position: relative;
+  }
+  
+  .topnav a {
+    color: #f2f2f2;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .topnav a:hover, .dropdown:hover .dropbtn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .topnav a:not(:first-child), .dropdown .dropbtn {
+      display: none;
+    }
+    .topnav a.icon {
+      display: block;
+      float: right;
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    .topnav.responsive {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+    .topnav.responsive a, .topnav.responsive .dropdown .dropbtn {
+      display: block;
+      text-align: left;
+    }
+    .topnav.responsive .dropdown-content {
+      position: relative;
+    }
+  }
+  /* Portfolio Section */
+.portfolio-section {
+  text-align: center;
+  padding: 50px 0;
+  overflow: hidden;
+}
+
+/* Image Slider Container */
+.image-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Image Row (Sliding Effect) */
+.image-container {
+  display: flex;
+  gap: 20px;
+  animation: slideLeft 15s linear infinite;
+}
+
+/* Images */
+.portfolio-image {
+  width: 250px; /* Adjust size as needed */
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.portfolio-image:hover {
+  transform: scale(1.1);
+}
+
+/* Sliding Animation */
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+/* Wrapper to prevent horizontal scrollbar */
+.gallery-wrapper {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Scrolling gallery */
+.gallery {
+  display: flex;
+  gap: 30px;
+  animation: scrollGallery 15s linear infinite;
+}
+
+/* Image container */
+.image-container {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.thumbnail {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+}
+
+/* Image name below each image */
+.image-name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Infinite scrolling animation */
+@keyframes scrollGallery {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+.portfolio
+{
+font-size: 36px;
+font-weight: bold;
+margin-left: 47px;
+}
+/* Ensuring gallery repeats infinitely */
+.gallery::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+/* Wrapper to prevent scrollbar */
+.gallery-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Scrolling gallery */
+.gallery {
+  display: flex;
+  gap: 50px; /* Adds a gap between images */
+  animation: scrollGallery 20s linear infinite;
+}
+
+/* Image container */
+.image-container {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Image styles */
+.thumbnail {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+}
+
+/* Image name below each image */
+.image-name {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Infinite scrolling animation */
+@keyframes scrollGallery {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Only shift half since we duplicated images */
+}
+
+
+.text-content.portfolio {
+  text-align: center; /* Center the text */
+  /* Adjust font size */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {  /* Medium screens */
+  .text-content.portfolio {
+    font-size: 2rem; /* Decrease font size */
+  }
+}
+
+@media (max-width: 768px) {  /* Small screens */
+  .text-content.portfolio {
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically (if needed) */
+  }
+}
+.footer {
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: grey;
+  color: white;
+  text-align: center;
+  padding: 8px 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.footer .logo {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.footer .logo img {
+  width: 40px; /* Adjust logo size */
+  height: 40px;
+  margin-right: 10px;
+}
+
+.footer .social-icons {
+  padding-right: 20px;
+}
+
+.footer .social-icons a {
+  margin: 0 10px;
+  color: white;
+  font-size: 24px;
+  transition: 0.3s;
+}
+
+.footer .social-icons a mat-icon {
+  font-size: 30px; /* Adjust size */
+  color: white;
+  transition: 0.3s;
+}
+
+.footer .social-icons a:hover mat-icon {
+  color: #f4a261; /* Highlight color on hover */
+}
+
+/* Push content above footer */
+body {
+  padding-bottom: 80px; /* Adjust based on footer height */
+}
+

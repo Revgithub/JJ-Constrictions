@@ -1,2 +1,80 @@
-
+<header class="topnav" id="myTopnav">
+    <a routerLink="/"><h1>JJ Constructions</h1></a>
+    <a routerLink="/home" class="active" >Home</a>
+    <a routerLink="/about" (click)="scrollToAboutUs()">About Us</a>
+    <a routerLink="/portfolio" (click)="scrollToPortfolio()">Portfolio</a>
+  
+    <a routerLink="/service" (click)="scrollToPortfolio()">Services</a>
+    <a href="https://wa.me/919791407369/?text=hi" target="_blank">
+      <i class="fa fa-whatsapp"></i> WhatsApp
+    </a>
+    
+    <a routerLink="/quote" (click)="openQuoteDialog()">Download Quote</a>
+    <a class="icon" (click)="resize()">
+      <mat-icon>menu</mat-icon>
+    </a>
+  </header>
+  
+  
 <app-slide-show></app-slide-show>
+<section class="company-intro" id="aboutUs">
+    <div class="text-content">
+      <h4>A Small Intro</h4>
+      <h2>Our Company</h2>
+      <p class="Intro">JJ Constructions, the leading civil construction company in Madurai ,Nagamalai Pudhukottai, was conceptualized with the vision to provide quality services at competitive prices. With over 25 years of experience in the industry, the company has the technical proficiency and expertise to surpass client expectations.</p>
+    </div>
+    <div class="video-content">
+        <iframe class="styled-iframe" src="assets/Videos/video1.mp4" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+      </div>
+  </section>
+  <h2 class="text-content portfolio">Our Portfolio1</h2>
+  <mat-tab-group>
+    <!-- First Tab: Completed -->
+    <mat-tab label="Completed">
+      <section id="portfolio" class="portfolio-section">
+       
+        <div class="gallery-wrapper">
+          <div class="gallery">
+            <!-- Loop through images1 twice for infinite effect -->
+            <div class="image-container" *ngFor="let image of images1.concat(images1)" (click)="openDialog(image.src)">
+              <img [src]="image.src" class="thumbnail">
+              <p class="image-name">{{ image.name }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </mat-tab>
+  
+    <!-- Second Tab: Under Construction -->
+    <mat-tab label="Under Construction">
+      <section class="portfolio-section">
+        <h2>Under Construction</h2>
+        <p>We are currently working on exciting new projects. Stay tuned!</p>
+      </section>
+    </mat-tab>
+  
+    <!-- Third Tab: Upcoming -->
+    <mat-tab label="Upcoming">
+      <section class="portfolio-section">
+        <h2>Upcoming Projects</h2>
+        <p>Check back soon to see our upcoming projects.</p>
+      </section>
+    </mat-tab>
+  </mat-tab-group>
+  
+  
+  <footer class="footer">
+    <div class="logo">
+      <img src="your-logo.png" alt="Company Logo">
+      <span>JJ Constructions</span>
+    </div>
+    <span>Copyright 2029 © JJ Constructions</span>
+    <div class="social-icons">
+      <a href="https://www.facebook.com" target="_blank"><mat-icon>facebook</mat-icon></a>
+      <a href="https://twitter.com" target="_blank"><mat-icon>twitter</mat-icon></a>
+      <a href="https://www.linkedin.com" target="_blank"><mat-icon>linkedin</mat-icon></a>
+      <a href="https://www.instagram.com" target="_blank"><mat-icon>instagram</mat-icon></a>
+    </div>
+  </footer>
+  
+  
